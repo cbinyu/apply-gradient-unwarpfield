@@ -67,7 +67,7 @@ To run it in participant level mode (for one participant) in a Docker container:
 
     docker run -i --rm \
                -v /Users/filo/data/ds005:/bids_dataset \
-               cbinyu/appply-gradient-unwarpfield \
+               cbinyu/apply-gradient-unwarpfield \
                    /bids_dataset \
                    /bids_dataset/derivatives \
                    participant \
