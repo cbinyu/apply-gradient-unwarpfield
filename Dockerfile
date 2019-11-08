@@ -3,13 +3,14 @@
 # we'll just get only what we need for the actual APP
 
 # Use CBI's BIDSApp_builder as a parent image:
-ARG BIDSAPP_BUILDER_VERSION=v1.1
+ARG BIDSAPP_BUILDER_VERSION=v1.4
 FROM cbinyu/bidsapp_builder:${BIDSAPP_BUILDER_VERSION} as builder
 
 ###   Clean up a little   ###
 
 # Get rid of some Python packages not needed by our App:
-RUN rm -fr ${PYTHON_LIB_PATH}/site-packages/scipy
+# (There is nothing else to clean for this App, since we haven't
+#  installed anything new).
 
 
 #############
@@ -27,8 +28,9 @@ ENV PATH=${FSLDIR}/bin:$PATH \
 
 # Copy any extra python packages installed in the builder stage:
 # (Note the variable ${PYTHON_LIB_PATH} is defined in the bidsapp_builder container)
-COPY --from=builder ./${PYTHON_LIB_PATH}/site-packages/      ${PYTHON_LIB_PATH}/site-packages/
-COPY --from=builder ./usr/local/bin/           /usr/local/bin/
+# (Nothing to copy for this App, since we haven't installed anything new)
+#COPY --from=builder ./${PYTHON_LIB_PATH}/site-packages/      ${PYTHON_LIB_PATH}/site-packages/
+#COPY --from=builder ./usr/local/bin/           /usr/local/bin/
 
 # Copy FSL binaries needed by our App:
 COPY --from=cbinyu/fsl6-core ./${FSLDIR}/bin/flirt \
