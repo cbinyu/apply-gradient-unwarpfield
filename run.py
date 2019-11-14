@@ -104,7 +104,7 @@ if args.analysis_level == "participant":
 
         # get all images for this subject:
         myImages = layout.get(subject=subject_label,
-                                  extensions=["nii.gz", "nii"],
+                                  extension=["nii.gz", "nii"],
                                   return_type='file')
         if (len(myImages) == 0):
             print("No images found for subject " + subject_label)
