@@ -77,7 +77,7 @@ if not os.path.isdir(args.full_warp_folder):
 else:
     files_to_find = ['radiological_fullWarp_abs.nii*', 'neurological_fullWarp_abs.nii*']
     if not all([ glob(os.path.join(args.full_warp_folder, f)) for f in files_to_find ]):
-        raise AssertionError('--full_warp_folder does not include radiological_fullWarp_abs and radiological_fullWarp_abs NIfTI files.')
+        raise AssertionError('--full_warp_folder does not include radiological_fullWarp_abs and neurological_fullWarp_abs NIfTI files.')
 
 # if "output_suffix" argument doesn't starts with underscore ("_"), add it:
 if args.output_suffix[0] != '_':
@@ -104,7 +104,7 @@ if args.analysis_level == "participant":
 
         # get all images for this subject:
         myImages = layout.get(subject=subject_label,
-                                  extension=["nii.gz", "nii"],
+                                  extension=[".nii.gz", ".nii"],
                                   return_type='file')
         if (len(myImages) == 0):
             print("No images found for subject " + subject_label)
