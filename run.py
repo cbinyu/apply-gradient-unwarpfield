@@ -86,7 +86,7 @@ if args.output_suffix[0] != '_':
 if not args.skip_bids_validator:
     run('bids-validator %s'%args.bids_dir)
 
-layout = BIDSLayout(args.bids_dir, ignore=['derivatives'])
+layout = BIDSLayout(args.bids_dir, derivatives=False)
 subjects_to_analyze = []
 # only for a subset of subjects
 if args.participant_label:
