@@ -1,4 +1,7 @@
-## Pydeface BIDS App
+## apply-gradient-unwarpfield BIDS App
+[![Docker image](https://img.shields.io/badge/docker-cbinyu%2Fapply--gradient--unwarpfield-brightgreen?logo=docker&style=flat)](https://hub.docker.com/r/cbinyu/apply-gradient-unwarpfield/tags/)
+
+
 This a [BIDS App](https://bids-apps.neuroimaging.io) wrapper that
 allows you to apply the warp field needed to correct for the gradient
 non-linearities in MRI images.
